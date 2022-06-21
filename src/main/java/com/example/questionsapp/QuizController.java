@@ -1,9 +1,11 @@
 package com.example.questionsapp;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequestMapping("/api/questions")
 @RestController
@@ -22,15 +24,14 @@ public class QuizController {
     }
 
     @GetMapping("/{id}")
-    public Question findOneQuestion(@PathVariable String id) {
-        return quizService.findOneQuestion(id);
+    public ResponseEntity<Question> findQuestionById(@PathVariable String id) {
+        return ResponseEntity.of(quizService.findQuestionById(id));
     }
-//    @DeleteMapping("{id")
-//    public Question deleteOneQuestion() {
-//        re
-//    }
+    @PutMapping
+    public ResponseEntity<Question> editQuestion(@RequestBody Question question) {
+        return ResponseEntity.of(quizService.editQuestion(question));
 
-
+    }
 
 
 
