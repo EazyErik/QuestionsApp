@@ -32,6 +32,10 @@ public class QuizController {
         return ResponseEntity.of(quizService.editQuestion(question));
 
     }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Question> deleteQuestion(@PathVariable String id){
+        return ResponseEntity.of(quizService.deleteQuestion(id));
+    }
 
 
 

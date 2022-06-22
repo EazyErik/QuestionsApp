@@ -17,5 +17,11 @@ public class Question {
     private boolean approved;
 
 
+    public Question(String question, String answer, boolean approved) {
+        this.question = question;
+        this.answer = answer;
+        this.approved = approved;
 
+
+    }
 }

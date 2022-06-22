@@ -34,4 +34,14 @@ public class QuizService {
        }
        return Optional.empty();
     }
+
+    public Optional<Question> deleteQuestion(String id) {
+          Optional<Question> questionToDelete = findQuestionById(id);
+          if(questionToDelete.isPresent()) {
+             quizRepository.deleteById(id);
+             return questionToDelete;
+          }else{
+              return Optional.empty();
+          }
+    }
 }
